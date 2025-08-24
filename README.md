@@ -1,14 +1,23 @@
-🌟 College Clubs Website
-A responsive and user-friendly web portal showcasing all college clubs across different domains — Academic, Cultural, Technical, and Environmental. Students can explore clubs, learn about their activities, and easily join.
+College Clubs Website :
+A modern and responsive web portal designed to showcase all college clubs across different domains — Academic, Cultural, Technical, and Environmental. The platform helps students explore clubs, discover activities, and get involved.
 
-✨ Features:
+Features:
+Club categories: Academic, Cultural, Technical, and Environmental
+Individual club profiles with description, activities, and contact details
+Responsive design that works seamlessly on desktop, tablet, and mobile
+Clean and user-friendly interface with simple navigation
+Support for images, logos, and banners
 
-🎓 Academic, Cultural, Technical & Environmental club sections
+Tech Stack:
+Frontend: HTML5, CSS3, JavaScript
+Design & Assets: Google Fonts, Custom CSS, Images/Logos
 
-📌 Club descriptions, activities, and contact info
-
-📷 Image and logo integration
-
-📱 Fully responsive design for mobile & desktop
-
-🖼️ Modern UI with smooth navigation
+College-Clubs-Website/
+│── index.html                  # Homepage (main entry point)  
+│── academic.html               # Academic clubs page  
+│── technical.html              # Technical clubs page  
+│── cultural.html               # Cultural clubs page  
+│── environmental.html          # Environmental clubs page  
+│── assets/                     # Static assets               
+│    └── images/                # Logos, banners, and other images  
+│── README.md                   # Project documentation  
