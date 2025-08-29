@@ -1007,3 +1007,49 @@ Traceback (most recent call last):
     raise NotFound() from None
 werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
 2025-08-29 18:23:52,060 [INFO] werkzeug: 127.0.0.1 - - [29/Aug/2025 18:23:52] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-08-29 22:24:53,236 [ERROR] CumminsApp: Failed to scrape college website: HTTPSConnectionPool(host='cumminscollege.edu.in', port=443): Read timed out.
+2025-08-29 22:24:53,270 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-29 22:24:53,270 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2025-08-29 22:24:53,272 [INFO] werkzeug:  * Restarting with stat
+2025-08-29 22:25:05,424 [ERROR] CumminsApp: Failed to scrape college website: HTTPSConnectionPool(host='cumminscollege.edu.in', port=443): Read timed out.
+2025-08-29 22:25:05,443 [WARNING] werkzeug:  * Debugger is active!
+2025-08-29 22:25:05,445 [INFO] werkzeug:  * Debugger PIN: 138-323-958
+2025-08-29 22:29:43,596 [INFO] werkzeug: 127.0.0.1 - - [29/Aug/2025 22:29:43] "GET / HTTP/1.1" 200 -
+2025-08-29 22:29:43,809 [ERROR] CumminsApp: Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "C:\Users\prachi\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prachi\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\prachi\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\prachi\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\prachi\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-08-29 22:29:43,814 [INFO] werkzeug: 127.0.0.1 - - [29/Aug/2025 22:29:43] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
+2025-08-29 22:29:46,647 [INFO] werkzeug: 127.0.0.1 - - [29/Aug/2025 22:29:46] "GET /chat_history HTTP/1.1" 200 -
+2025-08-29 22:29:50,502 [INFO] CumminsApp: Cleared chat history for session: sess_1756471895633_971
+2025-08-29 22:29:50,503 [INFO] werkzeug: 127.0.0.1 - - [29/Aug/2025 22:29:50] "POST /clear_chat HTTP/1.1" 200 -
+2025-08-29 22:29:53,041 [INFO] werkzeug: 127.0.0.1 - - [29/Aug/2025 22:29:53] "GET /sports HTTP/1.1" 200 -
+2025-08-29 22:29:53,074 [INFO] werkzeug: 127.0.0.1 - - [29/Aug/2025 22:29:53] "GET /chat_history HTTP/1.1" 200 -
+2025-08-29 22:29:53,124 [ERROR] CumminsApp: Unhandled exception: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+Traceback (most recent call last):
+  File "C:\Users\prachi\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\prachi\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\prachi\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\prachi\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\prachi\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-08-29 22:29:53,125 [INFO] werkzeug: 127.0.0.1 - - [29/Aug/2025 22:29:53] "[35m[1mGET /favicon.ico HTTP/1.1[0m" 500 -
