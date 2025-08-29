@@ -15,3 +15,5 @@ contact_messages.txt
 # OS-specific
 .DS_Store
 Thumbs.db
+
+.env
