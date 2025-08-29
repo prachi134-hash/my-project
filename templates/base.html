@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Campus Activities | Cummins College{% endblock %}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #2563eb;
+      --light: #f9fafb;
+      --surface: #ffffff;
+      --text: #374151;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --radius: 12px;
+      --shadow: 0 6px 16px rgba(0, 0, 0, .08);
+      --header-bg: #fff;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== Header ===== */
+    header {
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 1000;
+    }
+    .container { width: min(1120px, 92vw); margin: auto; padding: 0 20px; }
+    .nav { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: 14px 0; }
+    header .logo { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 1.2rem; color: #000; }
+    header .logo img { height: 40px; }
+    .menu { display: flex; gap: 20px; flex-wrap: wrap; }
+    .menu a { padding: 8px 10px; border-radius: 6px; font-weight: 500; color: var(--text); }
+    .menu a:hover { background: #f3f4f6; color: var(--primary); }
+
+    /* ===== Ticker ===== */
+    .updates-ticker { background: var(--secondary); color: #fff; overflow: hidden; white-space: nowrap; font-weight: 600; font-size: 14px; }
+    .ticker-track { display: inline-block; padding-left: 100%; animation: ticker 20s linear infinite; }
+    .ticker-track span { margin-right: 50px; }
+    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-100%)} }
+
+    /* ===== Footer ===== */
+    footer { background: #1e3a8a; color: #fff; padding: 40px 20px 20px; margin-top: 40px; }
+    footer .foot { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 24px; }
+    footer h5 { margin-bottom: 10px; }
+    footer p.muted { font-size: 14px; line-height: 1.5; color: #e5e7eb; }
+    footer a { color: #f5f503; }
+    footer a:hover { text-decoration: underline; }
+    footer .copy { text-align: center; font-size: 13px; color: #d1d5db; margin-top: 20px; border-top: 1px solid rgba(255,255,255,.2); padding-top: 12px; }
+
+    /* ===== Hamburger ===== */
+    .hamburger { display: none; font-size: 22px; cursor: pointer; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
+    @media (max-width:720px){ header .menu{display:none;flex-direction:column;width:100%} header .menu.show{display:flex} .hamburger{display:block} }
+
+    /* ===== Lightbox ===== */
+    .lightbox-modal { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,.85); display: none; align-items: center; justify-content: center; }
+    .lightbox-modal.open { display: flex; }
+    .lightbox-modal img { max-width: 92%; max-height: 86%; border-radius: 10px; }
+    .lightbox-close { position: fixed; top: 14px; right: 14px; background: #fff; border: none; border-radius: 999px; width: 38px; height: 38px; font-size: 20px; cursor: pointer; box-shadow: var(--shadow); }
+  </style>
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <!-- Header -->
+   <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a href="{{ url_for('index') }}" class="logo">
+        <img src="https://merocollege.com/wp-content/uploads/2020/01/Cummins-College-Nagpur-Logo.jpg" alt="CCoEW Logo">
+        <span>Cummins College of Engineering for Women</span>
+      </a>
+      <nav class="menu">
+        <a href="#index">Home</a>
+        <a href="#activities">Activities</a>
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+    <!-- Updates Ticker -->
+    <div class="updates-ticker">
+      <div class="ticker-track">
+        <span>Umang 2025 is coming soon!</span>
+        <span>Join Robotics Club for latest projects!</span>
+        <span>Sports week registration open!</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  
+<!-- Footer -->
+<footer>
+  <div class="container foot">
+    <div>
+      <h5>About CCoEW</h5>
+      <p class="muted">
+        Cummins College of Engineering for Women (CCoEW), Nagpur, established in 2010 by MKSSS, is NAAC A+ accredited
+        and affiliated to RTM Nagpur University. Empowering women engineers through academic excellence, research, and
+        holistic development.
+      </p>
+    </div>
+    <div>
+      <h5>Courses & Admissions</h5>
+      <p class="muted">
+        B.Tech Programs:<br>
+        • Computer Engineering<br>
+        • Mechanical Engineering<br>
+        • E&TC Engineering<br><br>
+        Admission via MHT-CET / JEE Main
+      </p>
+    </div>
+    <div>
+      <h5>Contact Us</h5>
+      <p class="muted">
+        📞 +91 9420410225<br>
+        📞 +91 8055935567<br>
+        📞 +91 7768929237<br>
+        📞 +91 8422008886<br><br>
+        ✉ Email: <a href="mailto:office@cumminscollege.edu.in">office@cumminscollege.edu.in</a>
+      </p>
+    </div>
+    <div>
+      <h5>Follow Us</h5>
+      <p class="muted">
+        <a href="#">Instagram</a> |
+        <a href="#">LinkedIn</a> |
+        <a href="#">Facebook</a> |
+        <a href="#">Discord</a>
+      </p>
+    </div>
+  </div>
+  <div class="copy">
+    &copy; 2025 Cummins College of Engineering for Women. All Rights Reserved.
+  </div>
+</footer>
+  <script>
+  // Hamburger toggle
+  const nav = document.querySelector('header .menu');
+  const navContainer = document.querySelector('.container.nav');
+  if (nav && navContainer) {
+    const ham = document.createElement('button');
+    ham.className = 'hamburger'; ham.textContent = '☰';
+    ham.onclick = () => nav.classList.toggle('show');
+    navContainer.insertBefore(ham, nav);
+  }
+  // Lightbox
+  document.addEventListener("click", e => {
+    if (e.target.matches(".gallery-grid img")) {
+      let modal=document.querySelector(".lightbox-modal");
+      if(!modal){
+        modal=document.createElement("div");
+        modal.className="lightbox-modal";
+        modal.innerHTML=`<button class="lightbox-close">×</button><img alt="Preview">`;
+        document.body.appendChild(modal);
+      }
+      modal.querySelector("img").src=e.target.src;
+      modal.classList.add("open");
+      modal.querySelector(".lightbox-close").onclick=()=>modal.classList.remove("open");
+      modal.onclick=ev=>{if(ev.target===modal)modal.classList.remove("open");};
+    }
+  });
+  </script>
+  {% block scripts %}{% endblock %}
+{% include "chatbot.html" %}
+</body>
+</html>

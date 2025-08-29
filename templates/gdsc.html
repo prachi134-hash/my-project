@@ -1,0 +1,159 @@
+ {% extends "base.html" %}
+
+{% block title %}Home | Cummins College{% endblock %}
+
+{% block head %}
+<style>
+
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-image: url('https://cumminscollege.edu.in/UserData/uploads/slider/7x.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: var(--text);
+      text-align: center;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(255,255,255,0.7);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+       /* Sections */
+    .section-title { margin-top:40px; margin-bottom:20px; font-weight:700; font-size:28px; color:var(--primary); }
+
+    .card { margin-bottom:20px; border-radius:var(--radius); overflow:hidden; box-shadow: var(--shadow); text-align:center; }
+    .card-body h5 { color:var(--secondary); font-weight:700; }
+    .card-body p { color:var(--text); font-weight:600; }
+
+    /* Committee Grid */
+    .committee-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-top: 20px;
+    }
+
+    .committee-grid .card {
+      width: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .committee-grid img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 12px;
+      border: 3px solid var(--secondary);
+    }
+
+    .committee-grid h4, .committee-grid p {
+      font-weight:700;
+      margin: 5px 0;
+    }
+
+    /* Footer */
+       @media(max-width:720px){
+      .committee-grid { flex-direction: column; align-items:center; }
+      .menu { flex-direction:column; gap:12px; }
+      .updates-ticker { font-size:12px; }
+    }
+
+    /* Club Logo */
+    .club-logo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+      margin: 0 auto 20px auto;
+    }
+
+    /* Events list */
+    .events-list {
+      max-width: 800px;
+      margin: auto;
+      text-align: left;
+      font-weight:700;
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0 15px;
+    }
+    .events-list li { margin-bottom:15px; }
+
+    /* Volunteering list - no bullets */
+    .volunteering-list {
+      list-style: none;
+      max-width:700px;
+      margin:auto;
+      color:var(--text);
+      font-size:16px;
+      line-height:1.6;
+      font-weight:700;
+      text-align:center;
+      padding:0;
+    }
+    .volunteering-list li { margin-bottom:12px; }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+  
+  <div class="container my-5" id="home">
+    <!-- About -->
+    <img src="https://static.vecteezy.com/system/resources/previews/005/538/683/original/code-or-coding-programmer-abstract-logo-illustration-design-vector.jpg" alt="Robotics Club Logo" class="club-logo">
+
+    <div class="section-title">About GDSC</div>
+    <p style="font-weight:700;">The Google Developer Student Club (GDSC) at Cummins College empowers students to learn development skills, explore emerging technologies, and build solutions for campus and community problems.</p>
+
+    <!-- Committee -->
+    <div class="section-title" id="committee">Core Committee Members</div>
+    <div class="committee-grid">
+      <div class="card">
+        <img src="https://cumminscollege.edu.in/UserData/uploads/pages/209/1.jpg" alt="Ms. Sakshi Khamankar">
+        <h4>Ms. Sakshi Khamankar</h4>
+        <p>Teacher Co-ordinator</p>
+      </div>
+      <div class="card">
+        <img src="https://cumminscollege.edu.in/UserData/uploads/pages/209/2.jpg" alt="Ms. Divyanshi Singh">
+        <h4>Ms. Divyanshi Singh</h4>
+        <p>Student Co-ordinator</p>
+      </div>
+    </div>
+
+    <!-- Events Section -->
+    <div class="section-title" id="events">Events Conducted</div>
+    <ul class="events-list">
+      <li><strong>Online Android & Web Camp:</strong> Conducted by Ms. Anshika Kumari, 3rd-year CE, attended by 100+ students via Google Meet.</li>
+      <li><strong>Web3 Metaverse Session:</strong> By Mr. Tanmay Tarte & Mr. Apurv Humne from Lumos Labs, with 100+ attendees learning blockchain development.</li>
+      <li><strong>Google Cloud Career Practitioner:</strong> Guided by GDSC lead & Ms. Richa Singh, students successfully completed the GCCP program.</li>
+      <li><strong>GitHub Repository Starring & Giveaway:</strong> Conducted by Ms. Divyanshi Singh, collaborating with teammates, 100+ participants joined the event.</li>
+    </ul>
+
+    <!-- Volunteering -->
+    <div class="section-title" id="volunteering">Volunteering</div>
+    <ul class="volunteering-list">
+      <li>GDSC CCOEW volunteered in GDSC WOW x Nagpur 2023.</li>
+      <li>GDSC CCOEW volunteered in Devfest 2022.</li>
+      <li>GDSC CCOEW also volunteered in WTM events.</li>
+      <li>GDSC CCOEW volunteered in Cloud Community Day 2022.</li>
+    </ul>
+  </div>
+
+{% endblock %}
+

@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Cummins College{% endblock %}
+
+{% block head %}
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-image: url('https://cumminscollege.edu.in/UserData/uploads/slider/7x.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      color: var(--text);
+      margin: 0;
+      font-weight: 600;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(255,255,255,0.7);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a { color: inherit; text-decoration: none; font-weight: 600; }
+
+    .section-title { 
+      margin-top: 40px; 
+      margin-bottom: 20px; 
+      text-align: center; 
+      font-weight: 700; 
+      font-size: 28px; 
+      color: var(--primary);
+    }
+
+    p, .card-body p, footer p.muted { font-weight: 600; } 
+    h1, h5, .card-body h5 { font-weight: 700; }
+
+    .club-logo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 12px;
+      display: block;
+      margin: 0 auto 20px auto;
+    }
+
+    /* Cards row */
+    .card-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .card-row .col {
+      flex: 1 1 22%;  /* four cards in a row with equal width */
+      display: flex;
+    }
+
+    .card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #ffffffaa;
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+    }
+
+    .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .card-body h5 { color: var(--secondary); font-weight: 700; margin-bottom: 10px; }
+    .card-body p { color: var(--text); font-weight: 600; }
+
+    .card-img-top {
+      height: 180px;
+      object-fit: cover;
+      transition: transform 0.3s;
+      border-top-left-radius: var(--radius);
+      border-top-right-radius: var(--radius);
+    }
+    .card-img-top:hover { transform: scale(1.05); }
+
+    /* Committee Table */
+    .committee-table {
+      table-layout: fixed;
+      width: 100%;
+    }
+    .committee-table th,
+    .committee-table td {
+      text-align: center;
+      vertical-align: middle;
+      font-weight: 600;
+      word-wrap: break-word;
+    }
+
+
+    /* Responsive adjustments */
+    @media(max-width: 1200px){
+      .card-row .col { flex: 1 1 45%; } /* 2 per row */
+    }
+    @media(max-width: 720px){
+      .card-row .col { flex: 1 1 100%; } /* 1 per row */
+      .committee-table { font-size: 12px; }
+    }
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container my-5" id="home">
+
+  <!-- About the Club -->
+  <img src="https://static.vecteezy.com/system/resources/previews/005/538/683/original/code-or-coding-programmer-abstract-logo-illustration-design-vector.jpg" alt="Robotics Club Logo" class="club-logo">
+  <div class="section-title">About the Club</div>
+  <p>The Coding Club focuses on developing coding skills and abilities of students, preparing them for future placements. It conducts workshops, coding competitions, peer-learning sessions, and daily practice sessions to enhance technical aptitude.</p>
+
+  <!-- Activities Conducted -->
+<div class="section-title" id="activities">Activities Conducted</div>
+<div class="card-row">
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <div class="mb-3"><i class="fas fa-lightbulb fa-2x text-primary"></i></div>
+        <h5 class="card-title">Problem Definition</h5>
+        <p class="card-text">Faculty provide problem definitions circulated to all year student groups. Evaluation is done next week.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <div class="mb-3"><i class="fas fa-users fa-2x text-primary"></i></div>
+        <h5 class="card-title">Peer-to-Peer Learning</h5>
+        <p class="card-text">Students share skills learned from NPTEL, Coursera, etc., among friends and juniors to enhance learning.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <div class="mb-3"><i class="fas fa-image fa-2x text-primary"></i></div>
+        <h5 class="card-title">Poster Making</h5>
+        <p class="card-text">Students prepare posters from journals and mini/minor projects. Best posters displayed on the notice board.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <div class="card-body">
+        <div class="mb-3"><i class="fas fa-laptop-code fa-2x text-primary"></i></div>
+        <h5 class="card-title">Front End Design</h5>
+        <p class="card-text">Students design attractive front ends using images, videos, links, pop-ups, etc. Evaluation based on creativity.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Competitions & Sessions -->
+<div class="section-title" id="competitions">Competitions & Sessions</div>
+<div class="card-row">
+  <div class="col">
+    <div class="card">
+      <img src="https://cumminscollege.edu.in/UserData/uploads/pages/209/c11.jpg" class="card-img-top" alt="CodeXcrawl 1">
+      <div class="card-body">
+        <h5 class="card-title">CodeXcrawl Coding Competition</h5>
+        <p class="card-text">Held on 17 Sept 2024 for students to showcase coding and problem-solving skills.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="https://cumminscollege.edu.in/UserData/uploads/pages/209/c22.jpg" class="card-img-top" alt="Destiny Drive 1">
+      <div class="card-body">
+        <h5 class="card-title">Destiny Drive 3.0</h5>
+        <p class="card-text">On 23 Sept 2024, Simranjeet Kaur guided students on placement preparation strategies.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="https://cumminscollege.edu.in/UserData/uploads/pages/209/c8.jpg" class="card-img-top" alt="Python Session 1">
+      <div class="card-body">
+        <h5 class="card-title">Peer-Learning Session on Python</h5>
+        <p class="card-text">Conducted by Vaishnavi Gujjalwar for 2nd-year students, attended by 55+ students.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <img src="https://cumminscollege.edu.in/UserData/uploads/pages/209/c7.jpg" class="card-img-top" alt="JS Session 1">
+      <div class="card-body">
+        <h5 class="card-title">Introduction to JS Session</h5>
+        <p class="card-text">Conducted on 4 Oct 2024 by Gunashree Bawankule & Yashaswini Pandilwar for 2nd-year students.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Committee -->
+  <div class="section-title" id="committee">Committee & Team Members</div>
+  <table class="table table-bordered committee-table">
+    <thead class="table-dark">
+      <tr>
+        <th>Sr. No.</th>
+        <th>Planning Committee Member</th>
+        <th>Execution Committee Members</th>
+        <th>Evaluation Committee Members</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Sejal Kalambhe</td>
+        <td>Ayushee Bhawsagar</td>
+        <td>Ritika Singh</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Rupal Bemarkar</td>
+        <td>Vaidehi Wakde</td>
+        <td>Anushree Zade</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Sanjiti Pimpalkar</td>
+        <td>Swati Patlel</td>
+        <td>Ankita Bafila</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Aqsa Fatima</td>
+        <td>Prachi Chaudhari</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}

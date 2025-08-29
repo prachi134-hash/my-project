@@ -1,0 +1,672 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Cummins College{% endblock %}
+
+{% block head %}
+<style>
+  /* ===== Homepage-specific styles ===== */
+     body {
+      margin: 0;
+      font-family: 'Inter', system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.6;
+      transition: background .3s, color .3s;
+    }
+
+    body {
+      background-image: url('https://cumminscollege.edu.in/UserData/uploads/slider/5.jpg'); /* Replace with your image path */
+      background-size: cover;       /* Cover the entire page */
+      background-position: center;  /* Center the image */
+      background-repeat: no-repeat; /* Prevent repeating */
+      background-attachment: fixed; /* Fixed while scrolling */
+      position: relative;
+    }
+
+    /* Faint overlay to dim the background */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255,255,255,0.7); /* Adjust opacity: 0 = fully transparent, 1 = opaque */
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+  /* Hero */
+    .hero {
+      position: relative;
+      padding: 100px 0;
+      background: url('https://cumminscollege.edu.in/UserData/uploads/pages/144/about-image.jpg') no-repeat center
+        center;
+      background-size: cover;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 36px;
+      align-items: center;
+      text-align: left;
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: #dbeafe;
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .hero h2 {
+      font-size: clamp(30px, 4.5vw, 48px);
+      margin: 14px 0 8px;
+      color: #fff;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #fff;
+    }
+
+    .hero-actions {
+      margin-top: 20px;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 16px;
+      border-radius: 6px;
+      border: 1px solid #d1d5db;
+      font-weight: 600;
+    }
+
+    .btn.primary {
+      background: var(--secondary);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Snapshot */
+    .hero-card {
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    .section {
+      padding: 48px 0;
+      text-align: center;
+    }
+
+    .section h3 {
+      font-size: 30px;
+      margin: 0 0 10px;
+      color: var(--primary);
+    }
+
+    .section p.lead {
+      color: var(--muted);
+      max-width: 70ch;
+      margin-inline: auto;
+    }
+
+   /* Activities Cards */
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      transition: transform .2s, box-shadow .2s;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .icon {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .card h4 {
+      margin: 8px 0 6px;
+      font-size: 18px;
+      color: var(--secondary);
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: transform .2s;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Contact Section */
+    .contact {
+      background: transparent;
+      padding: 40px 0;
+      text-align: center;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .contact-card {
+      background: var(--surface);
+      padding: 20px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      transition: transform .2s, box-shadow .2s;
+      text-align: left;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-card h4 {
+      margin-bottom: 15px;
+      font-size: 20px;
+      color: var(--primary);
+    }
+
+    .contact-info {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    .contact-info div:first-child {
+      font-size: 20px;
+    }
+
+    .contact-form form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: inherit;
+      resize: none;
+    }
+
+    .contact-form .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .contact-form button {
+      background: var(--secondary);
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+
+    .contact-form button:hover {
+      background: #1d4ed8;
+    }
+
+   /* Responsive */
+    @media (max-width: 1024px) {
+      .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+         }  @media (max-width: 720px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 60px 20px;
+      }
+
+      .hero h2 {
+        font-size: clamp(24px, 6vw, 36px);
+      }
+
+      .hero-card {
+        margin-top: 20px;
+      }
+
+      .grid-4 {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid img {
+        height: auto;
+      }
+
+
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+      }
+
+      .menu {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      
+    }
+/* Search bar styling (we will inject the input via JS) */
+    #search {
+      margin-top: 20px;
+      padding: 10px 12px;
+      width: 100%;
+      max-width: 420px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font: inherit;
+    }
+
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+
+
+  <!-- Hero -->
+  <main id="home" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Student Life • 2025–26</span>
+        <h2>Excellence Beyond Classrooms</h2>
+        <p class="subtitle">Empowering Women Engineers with Sports, Culture, Technology, Leadership, and more.</p>
+        <div class="hero-actions">
+          <button class="btn primary">Explore Activities</button>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div style="font-weight:700;">Quick Snapshot</div>
+        <div class="kpis">
+          <div>
+            <div class="n">50+</div>
+            <div class="l">Activities</div>
+          </div>
+          <div>
+            <div class="n">2000+</div>
+            <div class="l">Student Members</div>
+          </div>
+          <div>
+            <div class="n">20+</div>
+            <div class="l">Annual Fests</div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Activities Section -->
+  <section id="activities" class="section">
+    <div class="container">
+      <h3>Our Extracurricular Activities</h3>
+      <p class="lead">Discover a wide range of activities to grow your skills, passion, and connections.</p>
+      <div class="grid-4">
+        <a href="{{ url_for('sports') }}" class="card">
+          <div class="icon">⚽</div>
+          <h4>Sports</h4>
+          <p>Basketball, volleyball, athletics and more competitive sports.</p>
+        </a>
+        <a href="{{ url_for('cultural') }}" class="card">
+          <div class="icon">🎭</div>
+          <h4>Cultural</h4>
+          <p>Music, dance, theatre, and arts celebrating creativity.</p>
+        </a>
+        <a href="{{ url_for('tech') }}" class="card">
+          <div class="icon">💻</div>
+          <h4>Technical</h4>
+          <p>Hackathons, robotics, coding, AI/ML and innovation projects.</p>
+        </a>
+        <a href="{{ url_for('club') }}" class="card">
+          <div class="icon">🤝</div>
+          <h4>Clubs</h4>
+          <p>Join academic and non-academic clubs to learn and collaborate.</p>
+        </a>
+        <a href="{{ url_for('fest') }}" class="card">
+          <div class="icon">🎉</div>
+          <h4>Fests</h4>
+          <p>Annual fests and college events that bring students together.</p>
+        </a>
+        <a href="{{ url_for('social') }}" class="card">
+          <div class="icon">🌱</div>
+          <h4>Social Work</h4>
+          <p>Community service, NSS, and sustainability initiatives.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <h3>Gallery</h3>
+      <p class="lead">Highlights from our vibrant campus life.</p>
+      <div class="gallery-grid">
+        <!-- Use same images -->
+        <img src="https://cumminscollege.edu.in/app_theme/images/lifetatcampus-5.jpeg" alt="Gallery Image 1">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk19w2SCTsmb4MQvFn-wQ82k9M_wzDXCb7Jw&s" alt="Gallery Image 2">
+        <img src="https://cumminscollege.edu.in/UserData/uploads/album/ananya/Ananya%202.JPG" alt="Gallery Image 3">
+        <img src="https://image-static.collegedunia.com/public/reviewPhotos/1050781/6.jpg" alt="Gallery Image 4">
+        <img src="https://cumminscollege.edu.in/UserData/uploads/pages/203/event1.jpg" alt="Gallery Image 5">
+        <img src="https://media.licdn.com/dms/image/v2/D4D22AQFSzEVjakQo-g/feedshare-shrink_800/feedshare-shrink_800/0/1725977946781?e=2147483647&v=beta&t=Ruw3xBsNapGha-H1jSmlJjc7HS5CGSusB5Ak5bkjNEk" alt="Gallery Image 6">
+      </div>
+    </div>
+  </section>
+<section id="contact" class="section contact">
+  <div class="container">
+    <div style="margin-bottom:40px;">
+      <h3>Contact & Newsletter</h3>
+      <p>We'd love to hear from you and keep you updated with our newsletter</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h4>Contact Information</h4>
+        <div class="contact-info">
+          <div>📍</div>
+          <div>
+            <p>Location</p>
+            <p>Cummins College of Engineering Campus</p>
+          </div>
+        </div>
+        <div class="contact-info">
+          <div>✉</div>
+          <div>
+            <p>Email</p>
+            <p>cumminscollege.edu.in</p>
+          </div>
+        </div>
+        <div class="contact-info">
+          <div>🌐</div>
+          <div>
+            <p>Social Media</p>
+            <p>
+              <a href="#">Instagram</a> |
+              <a href="#">LinkedIn</a> |
+              <a href="#">Discord</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="contact-card contact-form">
+        <h4>Send us a Message / Subscribe to Newsletter</h4>
+        <form id="contactForm">
+  <div class="row">
+    <input type="text" id="firstName" placeholder="First Name">
+    <input type="text" id="lastName" placeholder="Last Name">
+  </div>
+  <input type="email" id="email" placeholder="Email">
+  <textarea id="message" rows="4" placeholder="Message / Comments"></textarea>
+  <button type="submit">Submit</button>
+</form>
+<div id="contactStatus" style="margin-top:10px;color:green;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock %}
+
+{% block scripts %}
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+  // ===== Explore Activities Button Scroll =====
+  const activities = document.getElementById('activities');
+  const exploreBtn = document.querySelector('.hero .hero-actions .btn.primary');
+  if (exploreBtn && activities) {
+    exploreBtn.addEventListener('click', () => {
+      activities.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  // ===== Activity Search Bar =====
+  if (activities) {
+    const container = activities.querySelector('.container');
+    const grid = activities.querySelector('.grid-4');
+    if (container && grid && !document.getElementById('search')) {
+      const input = document.createElement('input');
+      input.id = 'search';
+      input.type = 'text';
+      input.placeholder = 'Search activities...';
+      input.setAttribute('aria-label', 'Search activities');
+      container.insertBefore(input, grid);
+
+      input.addEventListener('keyup', () => {
+        const val = input.value.toLowerCase();
+        grid.querySelectorAll('.card').forEach(card => {
+          card.style.display = card.textContent.toLowerCase().includes(val) ? '' : 'none';
+        });
+      });
+    }
+  }
+
+  // ===== Header Scroll Highlight =====
+  const sections = Array.from(document.querySelectorAll('main[id], section[id]'));
+  const links = Array.from(document.querySelectorAll('header .menu a[href^="#"]'));
+  if ('IntersectionObserver' in window && sections.length && links.length) {
+    const byId = id => links.find(a => a.getAttribute('href') === `#${id}`);
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          links.forEach(a => a.classList.remove('active'));
+          const link = byId(entry.target.id);
+          if (link) link.classList.add('active');
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+    sections.forEach(sec => observer.observe(sec));
+  }
+
+  // ===== Gallery Lightbox =====
+  const galleryImgs = document.querySelectorAll('.gallery-grid img');
+  if (galleryImgs.length) {
+    const modal = document.createElement('div');
+    modal.className = 'lightbox-modal';
+    modal.innerHTML = `<button class="lightbox-close" aria-label="Close">×</button><img alt="Preview">`;
+    document.body.appendChild(modal);
+    const modalImg = modal.querySelector('img');
+    const close = () => modal.classList.remove('open');
+    modal.addEventListener('click', e => {
+      if (e.target === modal || e.target.classList.contains('lightbox-close')) close();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+    galleryImgs.forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modalImg.alt = img.alt || 'Preview';
+        modal.classList.add('open');
+      });
+    });
+  }
+
+  // ===== Contact Form Submission with Security & Validation =====
+  const contactForm = document.getElementById('contactForm');
+  const contactStatus = document.getElementById('contactStatus');
+  if (contactForm && contactStatus) {
+    contactForm.addEventListener('submit', async e => {
+      e.preventDefault();
+
+      // Trim and sanitize values
+      const firstName = contactForm.firstName.value.trim();
+      const lastName = contactForm.lastName.value.trim();
+      const email = contactForm.email.value.trim();
+      const message = contactForm.message.value.trim();
+
+      // Frontend validation
+      if (!firstName || !lastName) {
+        contactStatus.style.color = 'red';
+        contactStatus.innerText = 'Please enter your full name.';
+        return;
+      }
+      if (!email || !/^[^@]+@[^@]+\.[^@]+$/.test(email)) {
+        contactStatus.style.color = 'red';
+        contactStatus.innerText = 'Please enter a valid email address.';
+        return;
+      }
+      if (!message) {
+        contactStatus.style.color = 'red';
+        contactStatus.innerText = 'Message cannot be empty.';
+        return;
+      }
+
+      // Show sending status
+      contactStatus.style.color = 'blue';
+      contactStatus.innerText = 'Sending...';
+
+      const data = {
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        message
+      };
+
+      try {
+        const res = await fetch('/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const result = await res.json();
+        if (result.success) {
+          contactStatus.style.color = 'green';
+          contactStatus.innerText = result.message;
+          contactForm.reset();
+        } else {
+          contactStatus.style.color = 'red';
+          contactStatus.innerText = result.message || 'Failed to submit. Try again.';
+        }
+      } catch(err) {
+        console.error('Contact form error:', err);
+        contactStatus.style.color = 'red';
+        contactStatus.innerText = 'Something went wrong. Try again later.';
+      }
+    });
+  }
+
+  // ===== AOS Animations =====
+  if (!document.querySelector('link[href*="aos.css"]')) {
+    const aosLink = document.createElement('link');
+    aosLink.rel = 'stylesheet';
+    aosLink.href = 'https://unpkg.com/aos@2.3.1/dist/aos.css';
+    document.head.appendChild(aosLink);
+  }
+  if (!document.querySelector('script[src*="aos.js"]')) {
+    const aosScript = document.createElement('script');
+    aosScript.src = 'https://unpkg.com/aos@2.3.1/dist/aos.js';
+    aosScript.onload = () => AOS.init({ duration: 600, once: true, easing: 'ease-out' });
+    document.body.appendChild(aosScript);
+  }
+
+});
+</script>
+
+
+{% endblock %}
+

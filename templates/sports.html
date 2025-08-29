@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Cummins College{% endblock %}
+
+{% block head %}
+
+  <style>
+        body {
+      font-family: 'Inter', system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      background: url('https://cumminscollege.edu.in/UserData/uploads/pages/198/6.jpg') center/cover no-repeat fixed;
+      line-height: 1.6;
+      color: var(--text);
+      font-weight: 600;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(255,255,255,0.7);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+ 
+
+        .hero { text-align: center; padding: 60px 20px 20px; }
+    .hero h2 { color: var(--primary); font-size:32px; margin-bottom:10px; }
+    .hero p { max-width:800px; margin-inline:auto; margin-bottom:30px; font-size:16px; }
+
+    .incharge-photo {
+      width: 150px; height:150px;
+      object-fit:cover;
+      margin: 20px auto;
+      display:block;
+      border: 4px solid var(--secondary);
+    }
+
+    .sports-info { max-width:800px; margin:20px auto 50px; font-size:16px; color:var(--text); }
+
+    .sports-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      max-width: 1000px;
+      margin: 0 auto 50px;
+    }
+
+    .box {
+      background: rgba(255,255,255,0.95);
+      padding:25px;
+      border-radius:12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .box:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+    .box h4 { color: var(--secondary); font-size:20px; margin-bottom:15px; display:flex; align-items:center; gap:10px; }
+    .box .icon { font-size:28px; }
+    .box ul { list-style: disc inside; padding-left:0; }
+
+    .students ul { columns:2; -webkit-columns:2; -moz-columns:2; }
+
+    @media(max-width:1024px){
+      .sports-grid { grid-template-columns:1fr; }
+      .students ul { columns:1; }
+    }
+
+    .achievements { max-width: 900px; margin:0 auto 50px; background: rgba(255,255,255,0.95); padding:30px; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.08); }
+    .achievements h3 { color: var(--primary); margin-bottom:20px; text-align:center; font-size:28px; font-weight:700;}
+    .achievements ul { list-style:none; padding-left:0; }
+    .achievements ul li { font-weight:700; font-size:16px; color:#111; margin-bottom:12px; line-height:1.6; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 1000px;
+      margin: 0 auto 50px;
+      justify-content: center;
+    }
+
+    .gallery-grid img {
+      width: 100%; height:220px; object-fit:cover; border-radius:12px;
+      cursor:pointer; transition: transform .2s;
+    }
+    .gallery-grid img:hover { transform: scale(1.05); }
+
+    
+    @media(max-width:720px){
+      .gallery-grid { grid-template-columns: 1fr; justify-items: center; }
+    }
+
+    h2,h3,h4,h5 { font-weight:700; color:#111; }
+  </style>
+
+
+{% endblock %}
+
+{% block content %}
+  
+
+  <!-- Hero -->
+  <section class="hero" id="sports">
+    <h2>Sports</h2>
+    <p>The institute emphasizes all-round development. Sports play a vital role in shaping students' personalities. Students participate in various sports at intercollegiate, University, State, and National levels. We have playgrounds for indoor/outdoor games like Volleyball, Cricket, Badminton, Kabaddi, Kho-Kho, Table Tennis, Chess, and more. Full-time coaches/trainers are available.</p>
+    <img src="https://cumminscollege.edu.in/UserData/uploads/pages/198/prashant.jpg" alt="Sports In-Charge" class="incharge-photo">
+    <div class="sports-info">
+<h4>Sports incharge</h4><p>
+     Shri. Prashant Maske<br>
+      Ph.D(Pursuing), M.P.Ed, B.P.Ed</p>
+    </div>
+  </section>
+
+  <!-- Four Sections -->
+  <div class="sports-grid">
+    <div class="box">
+      <div class="icon">🏟️</div>
+      <h4>Playgrounds Available</h4>
+      <ul>
+        <li>Volleyball Ground</li>
+        <li>Basketball Court</li>
+        <li>Cricket Ground</li>
+        <li>Kho-Kho, Kabaddi Ground</li>
+        <li>Archery Target Point</li>
+      </ul>
+    </div>
+    <div class="box">
+      <div class="icon">🏠</div>
+      <h4>Indoor Games</h4>
+      <ul>
+        <li>Table Tennis</li>
+        <li>Badminton Court</li>
+        <li>Chess</li>
+        <li>Carrom</li>
+        <li>Boxing Kit</li>
+        <li>Yoga</li>
+      </ul>
+    </div>
+    <div class="box">
+      <div class="icon">🏋️‍♀️</div>
+      <h4>Facilities</h4>
+      <ul>
+        <li>Full-Time Sports In-charge</li>
+        <li>Gym & Green Gym at Campus</li>
+        <li>Running Track</li>
+      </ul>
+    </div>
+    <div class="box students">
+      <div class="icon">👥</div>
+      <h4>Students Participated</h4>
+      <ul>
+        <li>Table Tennis</li>
+        <li>Badminton</li>
+        <li>Chess</li>
+        <li>Carrom</li>
+        <li>Boxing</li>
+        <li>Wushu</li>
+        <li>Cricket</li>
+        <li>Volleyball</li>
+        <li>Basketball</li>
+        <li>Kabaddi</li>
+        <li>Kho-Kho</li>
+        <li>Dodge Ball</li>
+        <li>Javelin Throw</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Achievements -->
+  <section class="achievements">
+    <h3>Recent Sports Achievements</h3>
+    <ul>
+      <li>3rd place in volleyball in the Panjabrao Mahotsav Championship.</li>
+      <li>2nd place in chess tournament in the inter collegiate competition.</li>
+      <li>3rd place in table tennis in the inter-collegiate competition.</li>
+      <li>Janhavi Tichkule selected for All India Taekwondo Championship 2023 at Rajasthan.</li>
+      <li>Janhavi Tichkule won silver medal in wushu group event at National Level Inter-University Tournaments being held at Punjab University.
+</li>
+      <li>Janvi Zade won third prize at Maharashtra state sports Olympic championships 2022-23 in 400 m relays category.</li>
+      <li>Janhavi Tichkule, Ritika Jungare, Mahek Gupta won group Gold Medal at intercollegiate tournament for Taekwando organized by RTM Nagpur University.</li>
+      <li>Janhavi Tichkule won individual Bronze Medal at intercollegiate tournament for Taekwando organized by RTM Nagpur University.</li>
+      <li>Volleyball team won Zonal finals event at intercollegiate tournament organized by RTM Nagpur University.</li>
+      <li>In state level competition Damini 2023 at Pune, Tug of war team won the gold medal</li>
+      <li> Volleyball team won the 2nd runner.</li>
+      <li>Zanvi Zade won gold medal in 100m race of athletics event</li>
+    </ul>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery-grid" id="gallery">
+    <img src="https://cache.careers360.mobi/media/presets/720X480/colleges/social-media/media-gallery/3851/2018/7/18/Maharshi-Karve-Stree-Shikshan-Samstha-Cummins-College-of-Engineering-for-Women-Nagpur-sports2.jpg" alt="Sports Event 1">
+    <img src="https://cumminscollege.edu.in/UserData/uploads/pages/198/1.jpg" alt="Sports Event 2">
+    <img src="https://cumminscollege.edu.in/UserData/uploads/pages/198/2.jpg" alt="Sports Event 3">
+    <img src="https://cumminscollege.edu.in/UserData/uploads/pages/198/3.jpg" alt="Sports Event 4">
+    <img src="https://cumminscollege.edu.in/UserData/uploads/pages/198/5.jpg" alt="Sports Event 5">
+    <img src="https://cumminscollege.edu.in/UserData/uploads/pages/198/4.jpg" alt="Sports Event 6">
+  </section>
+{% endblock %}
+
+
+

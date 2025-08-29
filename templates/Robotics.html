@@ -1,0 +1,160 @@
+ {% extends "base.html" %}
+
+{% block title %}Home | Cummins College{% endblock %}
+
+{% block head %}
+<style>
+
+
+    
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, Segoe UI, Roboto, Arial, sans-serif;
+      line-height: 1.6;
+      transition: background .3s, color .3s;
+      background-image: url('https://cumminscollege.edu.in/UserData/uploads/slider/7x.jpg'); /* Replace with your image path */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      position: relative;
+      color: var(--text);
+      text-align: center; /* center all text */
+    }
+
+    /* Faint overlay */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.7);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+ 
+    
+    /* Page Sections */
+    .section { padding: 48px 0; }
+    .section h3 { font-size: 30px; margin: 0 0 10px; color: var(--primary); }
+    .section p.lead, .preamble, .workshop-text { max-width: 70ch; margin-inline: auto; line-height: 1.7; font-weight: 600; }
+
+    /* Club Logo */
+    .club-logo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 12px; /* optional rounded corners */
+      display: block;
+      margin: 0 auto 20px auto; /* centered with space below */
+    }
+
+    /* Committee Table */
+    .committee-table { width: 80%; border-collapse: collapse; margin: 20px auto; background: #ffffff; text-align: center; }
+    .committee-table th, .committee-table td { padding: 12px; border: 1px solid #e5e7eb; }
+    .committee-table th { background-color: #f3f4f6; font-weight: 700; }
+    .committee-table tbody tr:nth-child(even) { background-color: #f9fafb; }
+    .committee-table tbody tr:nth-child(odd) { background-color: #ffffff; }
+
+    /* Gallery */
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; justify-items: center; margin-top: 20px; }
+    .gallery-grid img { width: 100%; max-width: 300px; height: 220px; object-fit: cover; border-radius: var(--radius); cursor: pointer; transition: transform .2s; }
+    .gallery-grid img:hover { transform: scale(1.05); }
+
+   
+    /* Responsive */
+    @media (max-width: 1024px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 720px) { .gallery-grid { grid-template-columns: 1fr; } }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+  <!-- Preamble -->
+<section id="preamble" class="section">
+  <div class="container preamble">
+
+    <!-- Department and Club Name -->
+    <h3 style="margin-bottom: 10px; color: var(--primary);">Department of Mechanical Engineering</h3>
+    <h4 style="margin-bottom: 20px; color: var(--primary);">Robotics and Automation Club</h4>
+
+    <!-- Club Logo -->
+    <img src="https://cumminscollege.edu.in/UserData/uploads/pages/657/rologo.png" alt="Robotics Club Logo" class="club-logo">
+
+    <h3>Preamble</h3>
+    <p>
+      We, the students of Cummins College of Engineering for Women, Nagpur, united by a shared passion for the transformative potential of robotics and automation and recognizing its increasing significance in shaping the future, hereby establish the Robotics and Automation Student Club. Driven by a collective desire to learn, explore, and innovate within this dynamic field, we aim to foster a vibrant community dedicated to advancing our knowledge and skills in robotics, automation, artificial intelligence, and related technologies.
+    </p>
+    <p>
+      We believe in the power of collaborative learning, hands-on experience, and interdisciplinary engagement to cultivate the next generation of leaders and innovators in robotics and automation. Through workshops, projects, competitions, and outreach activities.
+    </p>
+
+  </div>
+</section>
+
+
+  <!-- Committee -->
+  <section id="committee" class="section">
+    <div class="container">
+      <h3>Core Committee 2024-25</h3>
+      <table class="committee-table">
+        <thead>
+          <tr><th>Designation</th><th>Name of Member</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Faculty Advisor</td><td>Prof. Sushil Lanjewar</td></tr>
+          <tr><td>President</td><td>Tejaswini Verma</td></tr>
+          <tr><td>Vice-President</td><td>Nandini Gayakwad</td></tr>
+          <tr><td>Mechanical Lead</td><td>Anjali Kadam</td></tr>
+          <tr><td>Electronics Lead</td><td>Shreya Chakraborty</td></tr>
+          <tr><td>Programming Lead</td><td>Ritika Kumari</td></tr>
+          <tr><td>Treasurer</td><td>Shreeya Chikhalkar</td></tr>
+          <tr><td>Content Head</td><td>Vaishnavi Mishra</td></tr>
+          <tr><td>Asst. Content Head</td><td>Astha Singh</td></tr>
+          <tr><td>Creative Head</td><td>Simran Shekh</td></tr>
+          <tr><td>Asst. Creative Head</td><td>Sejal Wadi, Yukti Ajmire</td></tr>
+          <tr><td>Event Co-ordinator</td><td>Janhavi Rajurkar</td></tr>
+          <tr><td>Asst. Event Co-ordinator(s)</td><td>Rishika Singh, Sanjivani Chavhan</td></tr>
+          <tr><td>Outreach & Publicity Head</td><td>Surbhi Nagar</td></tr>
+          <tr><td>Asst. Outreach & Publicity Head</td><td>Khushi Lede, Shreya Vashist</td></tr>
+          <tr><td>Social Media Manager(s)</td><td>Shruti Meshram, Chandni Sahu</td></tr>
+          <tr><td>Asst. Social Media Manager(s)</td><td>Bhavna Borse, Mallika Vishwakarma</td></tr>
+          <tr><td>Archives Manager</td><td>Sai Gaikwad</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Workshop -->
+  <section id="workshop" class="section">
+    <div class="container workshop-text">
+      <p>
+        The Robotics and Automation Club of Cummins College of Engineering for Women, Nagpur, successfully organized a highly engaging robotics workshop under the esteemed banner of IIT Bombay's Techfest. The workshop, conducted by the renowned robotics expert, Mr. Manish Maurya from Makxenia Product School, witnessed an overwhelming response, with over 180 enthusiastic participants in attendance.
+      </p>
+      <p>
+        The focus of the workshop was on two essential robots-Line Follower Robots and Gripper Robots. Participants were encouraged to participate in Zonal Competitions under the Techfest. Mr. Maurya, with his extensive experience in the field, guided the participants through the intricacies of designing and programming these robots.
+      </p>
+      <p>
+        The event was a major success under the guidance of faculty advisor Prof. Sushil Lanjewar, HOD Dr. Shailesh Khekale and Principal Dr. Milind Khanapurkar, further strengthening Cummins College's reputation as a hub for fostering technical education and innovation. It showcased the fruitful collaboration between educational institutions and prestigious platforms like IIT Bombay's Techfest.
+      </p>
+    </div>
+  </section>
+
+  <!-- Glimpse -->
+  <section id="glimpse" class="section">
+    <div class="container">
+      <h3>Glimpse of Workshop</h3>
+      <div class="gallery-grid">
+        <img src="https://cumminscollege.edu.in/UserData/uploads/pages/657/img.jpg" alt="Workshop 1">
+        <img src="https://cumminscollege.edu.in/UserData/uploads/pages/657/img1.jpg" alt="Workshop 2">
+        <img src="https://cumminscollege.edu.in/UserData/uploads/pages/657/img2.jpg" alt="Workshop 3">
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Cummins College{% endblock %}
+
+{% block head %}
+<style>
+
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+
+  /* Full-page background image */
+  background-image: url('https://cumminscollege.edu.in/UserData/uploads/album/ananya/Ananya.JPG'); /* Replace with your image URL */
+  background-size: cover;       /* Make it cover the whole page */
+  background-position: center;  /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat */
+  background-attachment: fixed; /* Keep the image fixed on scroll */
+  position: relative;
+}
+
+/* Optional overlay for better readability of content */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5); /* Adjust opacity as needed */
+  pointer-events: none;
+  z-index: -1;
+}
+
+
+/* Fest Page */
+h2,h3 { color: var(--primary); font-weight:700; margin-bottom:20px; text-align:center; }
+
+.fest-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-bottom:50px;
+}
+
+.fest-card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  text-align: center;
+  transition: transform .3s, box-shadow .3s;
+  width: 100%;
+}
+
+.fest-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.fest-card h4 {
+  font-size: 18px;
+  margin: 15px 10px 20px;
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.fest-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Center last row using grid */
+.fest-grid.last-row {
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+
+.fest-grid.last-row .fest-card:nth-child(n+3) {
+  visibility: hidden;
+}
+
+@media(max-width:1024px){
+  .fest-grid, .fest-grid.last-row { grid-template-columns: repeat(2, 1fr); }
+  .fest-grid.last-row .fest-card:nth-child(n+3) { visibility: visible; }
+}
+
+@media(max-width:720px){
+  .fest-grid, .fest-grid.last-row { grid-template-columns: 1fr; justify-content: center; gap: 20px; }
+  .fest-grid.last-row .fest-card:nth-child(n+3) { visibility: visible; }
+}
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+<section class="container" id="fest">
+  <h2>Cultural Events</h2>
+
+  <!-- First row 4 cards -->
+  <div class="fest-grid">
+    <div class="fest-card">
+      <img src="https://cumminscollege.edu.in/UserData/uploads/album/10/umang.jpg" alt="Umang">
+      <h4>Umang: Garba Navratri Event</h4>
+    </div>
+    <div class="fest-card">
+      <img src="https://cumminscollege.edu.in/UserData/uploads/album/8/rang-de.jpg" alt="Rang De">
+      <h4>Rang De: Holi Event</h4>
+    </div>
+    <div class="fest-card">
+      <img src="https://cumminscollege.edu.in/UserData/uploads/album/9/sphurti.jpg" alt="Sphurti">
+      <h4>Sphurti: Sports Event</h4>
+    </div>
+    <div class="fest-card">
+      <img src="https://cumminscollege.edu.in/UserData/uploads/album/6/freshers-party.jpg" alt="Freshers Party">
+      <h4>Freshers Party: Fresher Event</h4>
+    </div>
+  </div>
+
+  <!-- Second row 4 cards -->
+  <div class="fest-grid">
+    <div class="fest-card">
+      <img src="https://cumminscollege.edu.in/UserData/uploads/album/7/ganesh-charturthi.jpg" alt="Ganesh Chaturthi">
+      <h4>Ganesh Chaturthi</h4>
+    </div>
+    <div class="fest-card">
+      <img src="https://cumminscollege.edu.in/UserData/uploads/album/4/farewell-party.jpg" alt="Farewell Party">
+      <h4>Farewell Party: Final Year Farewell</h4>
+    </div>
+    <div class="fest-card">
+      <img src="https://cumminscollege.edu.in/UserData/uploads/album/5/flashmob.jpg" alt="Flashmob">
+      <h4>Flashmob</h4>
+    </div>
+    <div class="fest-card">
+      <img src="https://cumminscollege.edu.in/UserData/uploads/album/2/dahi-handi.jpg" alt="Dahi Handi">
+      <h4>Dahi Handi</h4>
+    </div>
+  </div>
+
+  <!-- Third row 2 cards centered -->
+  <div class="fest-grid last-row">
+    <div class="fest-card">
+      <img src="https://cumminscollege.edu.in/UserData/uploads/album/3/diwali.jpg" alt="Diwali">
+      <h4>Diwali</h4>
+    </div>
+    <div class="fest-card">
+      <img src="https://cumminscollege.edu.in/UserData/uploads/album/1/ananya.jpg" alt="Ananya">
+      <h4>Ananya: Annual Fest</h4>
+    </div>
+    <div class="fest-card"></div>
+    <div class="fest-card"></div>
+  </div>
+
+</section>
+
+
+
+{% endblock %}

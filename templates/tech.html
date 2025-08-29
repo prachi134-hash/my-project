@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Cummins College{% endblock %}
+
+{% block head %} 
+<style>
+
+
+/* Reset & Body */
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  color: #000;
+}
+
+/* Background wrapper */
+.background-wrapper {
+  position: relative;
+  min-height: 100vh;
+  background: url('https://cumminscollege.edu.in/UserData/uploads/pages/207/csi2.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* Faint overlay for background only */
+.background-wrapper::before {
+  content: "";
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background: rgba(255,255,255,0.7);
+  z-index: 0;
+}
+
+/* Content sits above overlay */
+.page-content {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* Tabs */
+.tabs {
+  display:flex; 
+  justify-content:center; 
+  margin:20px 0; 
+  flex-wrap:wrap;
+}
+.tabs button {
+  background: var(--primary); 
+  color:white; 
+  border:none; 
+  padding:12px 20px; 
+  cursor:pointer; 
+  margin:0 5px; 
+  border-radius:6px; 
+  font-weight:600;
+}
+.tabs button.active { background: var(--secondary); }
+.tab-content { display:none; padding:20px; max-width:1000px; margin:auto; }
+.tab-content.active { display:block; }
+
+/* Club Layout */
+.club-layout { text-align:center; margin-bottom:40px; }
+.club-logo { display:block; margin:20px auto; width:200px; border-radius:10px; }
+.club-layout h2 { color: var(--primary); font-weight:700; margin-bottom:15px; }
+.club-layout p { text-align:center; font-weight:500; white-space: pre-line; margin-bottom:20px; }
+
+
+</style>
+{% endblock %}
+
+{% block content %}
+
+
+
+    <div class="background-wrapper">
+  <div class="page-content">
+
+    <!-- Clubs Tabs -->
+    <div class="clubs-section">
+      <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('ieee')">IEEE</button>
+        <button class="tab-btn" onclick="showTab('iste')">ISTE</button>
+        <button class="tab-btn" onclick="showTab('iete')">IETE</button>
+        <button class="tab-btn" onclick="showTab('csi')">CSI</button>
+        <button class="tab-btn" onclick="showTab('asm')">ASM</button>
+        <button class="tab-btn" onclick="showTab('industry4')">Industry 4.0 Technocrat Club</button>
+      </div>
+
+     <!-- IEEE Club -->
+<div class="tab-content active" id="ieee">
+  <div class="club-layout">
+    <img src="https://tse4.mm.bing.net/th/id/OIP.ho40F15bVKiBvfJ0YZTDVAHaFG?r=0&cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3" alt="IEEE Logo" class="club-logo">
+    <h2>IEEE</h2>
+    <p>
+IEEE is the world's largest professional society dedicated to advancing technological innovation and excellence for the benefit of humanity. Various technical and non-technical activities are conducted under IEEE student branch.
+
+AVISHKAAR 3.0, held on February 22, 2025, featured a highly successful intercollegiate hackathon. This prestigious event was organized by IEEE.
+
+The IEEE Minor Series 1.3, held on September 18, 2024, featured a crucial Freshmen Induction Session by Coding Ninjas, in partnership with the Cummins College of Engineering for Women, Nagpur.
+
+The IEEE Club organized a debate competition titled "Minor Series 1.0 - Debate" on 25th July 2024. The event took place at Gargi Seminar Hall and commenced at 3:00 PM, drawing significant interest from students and faculty alike.
+    </p>
+  </div>
+</div>
+
+<!-- ISTE Club -->
+<div class="tab-content" id="iste">
+  <div class="club-layout">
+    <img src="https://thf.bing.com/th/id/OIP.Ib4PnkdOGQyOjSWIE1beAwAAAA?w=219&h=179&c=7&r=0&o=7&cb=thfc1&dpr=1.3&pid=1.7&rm=3" alt="ISTE Logo" class="club-logo">
+    <h2>ISTE</h2>
+    <p>
+One Day workshop “FRAMES BY FRAME On Video Editing”
+
+ISTE (New Delhi) student Chapter of Cummins College of Engineering for Women, Nagpur organized one day workshop “FRAMES By FRAME: Short Film making and Video Editing”. Mr. Aniket Lad, renowned Writer and Director had interactive session with participants and provided hands on training on Video Editing. He discussed about various video editing softwares, script writing and audio mixing. There was overwhelming response from students and faculties of Engineering and Nursing Colleges of Maharshi Karve Stree Shikshan Samstha. All the participants were awarded with participation certificates.
+
+Two days workshop on “Basics of MATLAB and its Applications” at Cummins CoE, Nagpur
+Cummins College of Engineering for Women organized a two days workshop on “Basics of MATLAB and its Applications” on 14th and 15th Feb.2014 in the Department of Electronics and Telecommunication under ISTE student Chapter, New Delhi. Dr.M.M Mushrif; Professor in ET dept. YCCE, Nagpur and Mr. Vaibhav Waghmare; Business Analyst, Helical IT Solution, Hyderabad had interactive sessions with students and provided hands on training on MATLAB.
+
+National Science Day
+Cummins College of Engineering for Women organized e-poster presentation competition under ISTE chapter on 28/2/2018 to celebrate National Science Day. 30 participants from the students of Cummins CoE and other Engineering colleges participated. Mrs. Madhuri Dhanawade, Chief Guest of the event; Head of HOD ETC Dept. gave the welcome speech and emphasized the importance of Science. All participants were awarded with certificates.
+
+TECTONIC 2020
+ISTE student chapter, Cummins College of Engineering for Women, Nagpur organized its annual Tech Fest ‘TECTONIC 2020’ on 25th January 2020. Various competitions like Poster Presentation, Project Presentation, Paper Presentation and Quiz competitions were organized. Participants from different colleges were awarded with prizes and certificates.
+    </p>
+  </div>
+</div>
+
+<!-- IETE Club -->
+<div class="tab-content" id="iete">
+  <div class="club-layout">
+    <img src="https://iete.tcetmumbai.in/assets/img/logo.png" alt="IETE Logo" class="club-logo">
+    <h2>IETE</h2>
+    <p>
+The Institution of Electronics and Telecommunication Engineers (IETE) student chapter at Cummins College of Engineering for Women, Nagpur aims to promote technical knowledge and professional development in the field of electronics, telecommunications, and IT.
+
+Activities conducted include technical workshops, seminars, guest lectures by industry experts, and hands-on projects to strengthen practical knowledge. Regular guidance sessions help students prepare for competitive exams and certifications in the electronics and IT sector.
+
+IETE also organizes inter-college technical competitions such as circuit design challenges, robotics contests, and paper presentations to encourage innovation and practical implementation of theoretical concepts.
+    </p>
+  </div>
+</div>
+
+<!-- CSI Club -->
+<div class="tab-content" id="csi">
+  <div class="club-layout">
+    <img src="https://www.acpce.org/en/wp-content/uploads/2017/06/csi-logo.png" alt="CSI Logo" class="club-logo">
+    <h2>CSI</h2>
+    <p>
+The Computer Society of India (CSI) student chapter at Cummins College of Engineering for Women, Nagpur is dedicated to the development of computing and IT skills among students. 
+
+CSI organizes workshops, coding competitions, hackathons, and seminars to expose students to the latest trends and technologies in computer science and information technology. Members also participate in research-based projects, collaborative learning sessions, and industrial visits to gain real-world exposure.
+
+CSI promotes networking and knowledge-sharing among students, faculty, and industry professionals, helping students build a strong foundation in software development, AI, data science, and cybersecurity.
+    </p>
+  </div>
+</div>
+
+<!-- ASM Club -->
+<div class="tab-content" id="asm">
+  <div class="club-layout">
+    <img src="https://alchetron.com/cdn/asm-international-society-e474560e-5c24-4bf2-9232-a95a908917a-resize-750.jpg" alt="ASM Logo" class="club-logo">
+    <h2>ASM</h2>
+    <p>
+The ASM (American Society for Metals) student chapter at Cummins College of Engineering for Women, Nagpur focuses on metallurgy, materials science, and mechanical engineering disciplines. 
+
+ASM organizes technical sessions, material testing workshops, expert lectures, and hands-on projects to enhance students’ understanding of metals, alloys, and industrial applications. Members are encouraged to engage in research projects, internships, and collaborative industrial visits to gain practical knowledge of materials engineering.
+    
+The chapter also provides opportunities to attend national and international conferences, competitions, and competitions related to mechanical and materials engineering.
+    </p>
+  </div>
+</div>
+
+<!-- Industry 4.0 Technocrat Club -->
+<div class="tab-content" id="industry4">
+  <div class="club-layout">
+    <img src="https://thf.bing.com/th/id/OIP.0tZfMlMRGkxpRW9mIDFrSwHaE7?w=257&h=180&c=7&r=0&o=7&cb=thfc1&dpr=1.3&pid=1.7&rm=3" alt="Industry 4.0 Logo" class="club-logo">
+    <h2>Industry 4.0 Technocrat Club</h2>
+    <p>
+The Industry 4.0 Technocrat Club at Cummins College of Engineering for Women, Nagpur is focused on emerging technologies including IoT, AI, robotics, and smart manufacturing.
+
+The club conducts workshops, hands-on projects, and seminars on Industry 4.0 technologies. Students participate in competitions, hackathons, and innovation challenges to develop practical skills and problem-solving capabilities in real-world scenarios.
+
+This club serves as a platform for students to collaborate with industry experts, gain insights into future technologies, and prepare for careers in advanced manufacturing, automation, and smart systems.
+    </p>
+  </div>
+</div>
+
+
+
+   {% endblock %}
+{% block scripts %}
+<script>
+function showTab(tabId){
+  const contents = document.querySelectorAll('.tab-content');
+  const tabs = document.querySelectorAll('.tab-btn');
+  contents.forEach(c => c.classList.remove('active'));
+  tabs.forEach(t => t.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  document.querySelector(`.tab-btn[onclick="showTab('${tabId}')"]`).classList.add('active');
+}
+</script>
+  {% endblock %}

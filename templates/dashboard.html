@@ -1,0 +1,242 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Cummins College{% endblock %}
+
+{% block head %}
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://tse1.explicit.bing.net/th/id/OIP.DKyLko7TSutfH35qLpWnaQHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3') repeat;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+   
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #003366;
+    }
+
+    /* Snapshot Cards */
+    .snapshot {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+    .card {
+      flex: 1;
+      margin: 0 10px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card h3 {
+      margin: 0.5rem 0;
+      font-size: 2rem;
+      color: #003366;
+    }
+
+    /* Announcements & Notifications */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .section-box {
+      background: #fdfdfd;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .section-box ul {
+      list-style: none;
+      padding: 0;
+    }
+    .section-box ul li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* Calendar & Events */
+    .calendar-events {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 2rem;
+    }
+    .calendar {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .calendar table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .calendar th, .calendar td {
+      padding: 10px;
+      text-align: center;
+    }
+    .calendar td.event-day {
+      background: #cce5ff;
+      border-radius: 50%;
+      position: relative;
+    }
+    .calendar td.event-day::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: red;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .calendar-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .events {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+ 
+  <div class="container">
+
+    <!-- Snapshot Cards -->
+    <section class="snapshot">
+      <div class="card">
+        <h3>2000+</h3>
+        <p>Students</p>
+      </div>
+      <div class="card">
+        <h3>50+</h3>
+        <p>Clubs</p>
+      </div>
+      <div class="card">
+        <h3>100+</h3>
+        <p>Events</p>
+      </div>
+      <div class="card">
+        <h3>500+</h3>
+        <p>Activities</p>
+      </div>
+    </section>
+
+    <!-- Announcements & Notifications -->
+    <section class="grid-2">
+      <div class="section-box">
+        <h2>📢 Announcements</h2>
+        <ul>
+          <li>Mid-semester exams start from Sept 15.</li>
+          <li>Robotics Club new registrations open till Sept 5.</li>
+          <li>Sports Week schedule released.</li>
+        </ul>
+      </div>
+      <div class="section-box">
+        <h2>🔔 Notifications</h2>
+        <ul>
+          <li>New event: Hackathon on Sept 10.</li>
+          <li>Library books due reminder.</li>
+          <li>Cultural fest auditions tomorrow.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Calendar + Events -->
+    <section class="calendar-events">
+      <div class="calendar">
+        <div class="calendar-nav">
+          <button onclick="prevMonth()">⬅ Prev</button>
+          <h3 id="monthYear">August 2025</h3>
+          <button onclick="nextMonth()">Next ➡</button>
+        </div>
+        <table id="calendarTable">
+          <!-- JS fills calendar -->
+        </table>
+      </div>
+      <div class="events">
+        <h2>📅 Upcoming Events</h2>
+        <ul>
+          <li>Aug 30 – Guest Lecture on AI</li>
+          <li>Sept 5 – NSS Blood Donation Camp</li>
+          <li>Sept 10 – Inter-college Hackathon</li>
+        </ul>
+      </div>
+    </section>
+
+  </div>
+
+{% endblock %}
+
+{% block scripts %}
+  <script>
+    const monthYear = document.getElementById("monthYear");
+    const calendarTable = document.getElementById("calendarTable");
+    let currentDate = new Date();
+
+    function renderCalendar(date) {
+      const year = date.getFullYear();
+      const month = date.getMonth();
+
+      const firstDay = new Date(year, month, 1).getDay();
+      const lastDate = new Date(year, month + 1, 0).getDate();
+
+      const months = ["January","February","March","April","May","June",
+        "July","August","September","October","November","December"];
+      monthYear.innerText = months[month] + " " + year;
+
+      let table = "<tr>";
+      const days = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+      for (let d of days) table += `<th>${d}</th>`;
+      table += "</tr><tr>";
+
+      for (let i = 0; i < firstDay; i++) {
+        table += "<td></td>";
+      }
+
+      for (let day = 1; day <= lastDate; day++) {
+        const isEvent = (day === 5 || day === 10 || day === 30); // demo event days
+        table += `<td class="${isEvent ? 'event-day' : ''}">${day}</td>`;
+        if ((day + firstDay) % 7 === 0) table += "</tr><tr>";
+      }
+      table += "</tr>";
+      calendarTable.innerHTML = table;
+    }
+
+    function prevMonth() {
+      currentDate.setMonth(currentDate.getMonth() - 1);
+      renderCalendar(currentDate);
+    }
+    function nextMonth() {
+      currentDate.setMonth(currentDate.getMonth() + 1);
+      renderCalendar(currentDate);
+    }
+
+    renderCalendar(currentDate);
+  </script>
+
+{% endblock %}
+

@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+
+{% block title %}Home | Cummins College{% endblock %}
+
+{% block head %} 
+  <style>
+  
+    body {
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      background: var(--light);
+      color: var(--text);
+      margin: 0;
+      background-image: url('https://cumminscollege.edu.in/UserData/uploads/pages/215/6.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255,255,255,0.7);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+       /* Tabs */
+    .tabs { display: flex; justify-content: center; margin: 20px 0; }
+    .tabs button { background: var(--primary); color: white; border: none; padding: 12px 20px; cursor: pointer; margin: 0 5px; border-radius: 6px; font-weight: 600; }
+    .tabs button.active { background: var(--secondary); }
+
+    .tab-content { display: none; padding: 20px; max-width: 1000px; margin: auto; }
+    .tab-content.active { display: block; }
+
+    .club-layout { display: flex; flex-wrap: wrap; gap: 20px; align-items: center; justify-content: center; text-align: left; }
+    .club-layout img { width: 280px; height: 280px; object-fit: cover; border-radius: 10px; margin: auto; }
+    .club-layout .club-text { flex: 1; min-width: 280px; }
+    .club-layout h2 { color: var(--primary); font-weight: 700; }
+    .club-layout h3 { color: var(--primary); font-weight: 600; margin-top: 20px; }
+    .club-layout .achievement { margin-bottom: 10px; }
+
+    .gallery { display: flex; justify-content: center; gap: 12px; margin-top: 20px; }
+    .gallery img { width: 33%; height: 220px; object-fit: cover; border-radius: var(--radius); cursor: pointer; transition: transform .2s; }
+    .gallery img:hover { transform: scale(1.05); }
+
+    .join-us { background: transparent; padding: 50px 20px; text-align: center; margin-top: 40px; }
+    .join-us h2 { color: var(--primary); margin-bottom: 15px; }
+    .join-us p { margin-bottom: 25px; }
+    .join-us form { max-width: 500px; margin: auto; display: flex; flex-direction: column; gap: 12px; }
+    .join-us input, .join-us select, .join-us textarea { padding: 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 14px; font-family: 'Inter', sans-serif; }
+    .join-us button { background: var(--secondary); color: #fff; border: none; padding: 12px; border-radius: 6px; font-weight: 600; cursor: pointer; }
+    .join-us button:hover { background: #1d4ed8; }
+
+    
+  </style>
+{% endblock %}
+
+{% block content %}
+
+
+<!-- Tabs -->
+<div class="tabs">
+  <button class="tab-btn active" onclick="showTab('muktangan')">Muktangan</button>
+  <button class="tab-btn" onclick="showTab('saptswarangi')">Saptswarangi</button>
+</div>
+
+<!-- Muktangan -->
+<div class="tab-content active" id="muktangan">
+  <div class="club-layout">
+    <img src="https://cumminscollege.edu.in/UserData/uploads/pages/215/muktangan%20logo.png" alt="Muktangan">
+    <div class="club-text">
+      <h2>Muktangan</h2>
+      <p>Muktangan is our performing arts club focusing on dance, theatre, and drama. It provides a platform for students to showcase creativity through stage performances and cultural activities.</p>
+      <h3>Events & Achievements</h3>
+      <div class="achievement">Performed at Umang 2024 – 1st Prize in Drama</div>
+      <div class="achievement">Intercollegiate Dance Fest – Best Choreography Award</div>
+      <div class="achievement">Annual Cultural Show 2023 – 50+ participants</div>
+    </div>
+  </div>
+  <div class="gallery">
+    <img src="https://cumminscollege.edu.in/UserData/uploads/pages/215/4.jpg" alt="Event 1">
+    <img src="https://cumminscollege.edu.in/UserData/uploads/pages/215/6.jpg" alt="Event 2">
+    <img src="https://cumminscollege.edu.in/UserData/uploads/pages/215/8.jpg" alt="Event 3">
+  </div>
+</div>
+
+<!-- Saptswarangi -->
+<div class="tab-content" id="saptswarangi">
+  <div class="club-layout">
+    <img src="https://cumminscollege.edu.in/UserData/uploads/pages/215/sarswatimaa.jpg" alt="Saptswarangi">
+    <div class="club-text">
+      <h2>Saptswarangi</h2>
+      <p><strong>Faculty Coordinator:</strong> Prof. Deodatta Sovani</p>
+      <p>The Saptswarangi Music Club is a vibrant community of singers, instrumentalists, and music lovers. Whether classical, contemporary, or fusion – it celebrates the language of music.</p>
+      <h3>Events & Achievements</h3>
+      <div class="achievement">Performed at Nagpur Youth Festival 2024 – 2nd Prize</div>
+      <div class="achievement">Open Mic 2023 – 30+ student performers</div>
+      <div class="achievement">Music Workshop with industry experts</div>
+    </div>
+  </div>
+  <div class="gallery">
+    <img src="https://cumminscollege.edu.in/UserData/uploads/pages/2343/9.jpg" alt="Concert">
+    <img src="https://cumminscollege.edu.in/UserData/uploads/pages/2343/10.jpg" alt="Practice">
+    <img src="https://cumminscollege.edu.in/UserData/uploads/pages/2343/10.jpg" alt="Workshop">
+  </div>
+</div>
+
+
+{% endblock %}
+{% block scripts %}
+
+<script>
+function showTab(tabId){
+  document.querySelectorAll('.tab-content').forEach(tab=>tab.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(btn=>btn.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+</script>
+
+{% endblock %}
