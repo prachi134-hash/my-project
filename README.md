@@ -59,7 +59,7 @@ my_site/
 
 ## ⚙️ Setup Instructions
 
-1. Clone the project** (if using Git) or download the project folder `my_site`.
+1. Clone the project (if using Git) or download the project folder `my_site`.
 2. Navigate to the project folder:
    ```bash
    cd my_site
