@@ -6,29 +6,31 @@
 
 ## 📁 Project Structure
 
+
 my_site/
 ├─ templates/
-│ ├─ base.html # Base template for consistent header/footer
-│ ├─ index.html # Homepage
-│ ├─ chatbot.html # College chatbot page
-│ ├─ dashboard.html # Admin/student dashboard
-│ ├─ login.html # Login page
-│ ├─ sports.html # Sports activities page
-│ ├─ cultural.html # Cultural events page
-│ ├─ tech.html # Technical events page
-│ ├─ club.html # College clubs page
-│ ├─ fest.html # College fest page
-│ └─ social.html # Social initiatives page
-├─ database.db # SQLite database
-├─ contact_messages.txt # Contact form messages
-├─ check_db.py # Script to check database entries
-├─ app.py # Main Flask application
-├─ app.log # Application log
-├─ app_errors.log # Error log
-├─ .env # Environment variables (hidden)
-├─ .env.example # Example environment file
-├─ .gitignore # Git ignore rules
-└─ README.md # Project documentation
+│  ├─ base.html            # Base template for consistent header/footer
+│  ├─ index.html           # Homepage
+│  ├─ chatbot.html         # College chatbot page
+│  ├─ dashboard.html       # Admin/student dashboard
+│  ├─ login.html           # Login page
+│  ├─ sports.html          # Sports activities page
+│  ├─ cultural.html        # Cultural events page
+│  ├─ tech.html            # Technical events page
+│  ├─ club.html            # College clubs page
+│  ├─ fest.html            # College fest page
+│  └─ social.html          # Social initiatives page
+├─ database.db             # SQLite database
+├─ contact_messages.txt    # Contact form messages
+├─ check_db.py             # Script to check database entries
+├─ app.py                  # Main Flask application
+├─ app.log                 # Application log
+├─ app_errors.log          # Error log
+├─ .env                    # Environment variables (hidden)
+├─ .env.example            # Example environment file
+├─ .gitignore              # Git ignore rules
+└─ README.md               # Project documentation
+
 
 
 ---
@@ -100,7 +102,7 @@ Go to http://127.0.0.1:5000/ to access the portal.
 
 ---
 
-##💡 Security Notes
+# 💡 Security Notes
 -Remove any API tokens or secrets from your Git history before pushing to GitHub.
 
 -Use .gitignore to exclude .env or sensitive files.
@@ -109,7 +111,7 @@ Go to http://127.0.0.1:5000/ to access the portal.
 
 ---
 
-##📂 Notes
+# 📂 Notes
 -All HTML pages extend base.html for consistent design.
 
 -Logs (app.log and app_errors.log) help track errors and activity.
