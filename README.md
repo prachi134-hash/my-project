@@ -103,20 +103,20 @@ Go to http://127.0.0.1:5000/ to access the portal.
 ---
 
 # 💡 Security Notes
--Remove any API tokens or secrets from your Git history before pushing to GitHub.
-
--Use .gitignore to exclude .env or sensitive files.
-
--Enable GitHub Secret Scanning to automatically detect secret commits.
+- Remove any API tokens or secrets from your Git history before pushing to GitHub.
+- Use `.gitignore` to exclude `.env` or other sensitive files.
+- Enable GitHub Secret Scanning to automatically detect accidental secret commits.
 
 ---
 
 # 📂 Notes
--All HTML pages extend base.html for consistent design.
+- All HTML pages extend `base.html` for a consistent design across the portal.
+- Logs (`app.log` and `app_errors.log`) help track errors and monitor application activity.
+- Chatbot responses are limited to college-related content.
 
--Logs (app.log and app_errors.log) help track errors and activity.
+---
 
--Chatbot responses are limited to college-related content.
+For questions, feedback, or contributions, please reach out to the project administrator or submit a pull request on GitHub.
 
 
 
