@@ -6,7 +6,7 @@
 
 ## 📁 Project Structure
 
-
+```
 my_site/
 ├─ templates/
 │  ├─ base.html            # Base template for consistent header/footer
@@ -31,7 +31,7 @@ my_site/
 ├─ .gitignore              # Git ignore rules
 └─ README.md               # Project documentation
 
-
+```
 
 ---
 
@@ -103,20 +103,20 @@ Go to http://127.0.0.1:5000/ to access the portal.
 ---
 
 # 💡 Security Notes
--Remove any API tokens or secrets from your Git history before pushing to GitHub.
+--Remove any API tokens or secrets from your Git history before pushing to GitHub.
 
--Use .gitignore to exclude .env or sensitive files.
+--Use .gitignore to exclude .env or sensitive files.
 
--Enable GitHub Secret Scanning to automatically detect secret commits.
+--Enable GitHub Secret Scanning to automatically detect secret commits.
 
 ---
 
 # 📂 Notes
--All HTML pages extend base.html for consistent design.
+--All HTML pages extend base.html for consistent design.
 
--Logs (app.log and app_errors.log) help track errors and activity.
+--Logs (app.log and app_errors.log) help track errors and activity.
 
--Chatbot responses are limited to college-related content.
+--Chatbot responses are limited to college-related content.
 
 
 
