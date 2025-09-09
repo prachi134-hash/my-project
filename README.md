@@ -65,7 +65,7 @@ my_site/
 2. **Create and activate a virtual environment**:
 
  ```bash
-Copy code
+
 python -m venv venv
 # Windows
 venv\Scripts\activate
@@ -75,14 +75,14 @@ source venv/bin/activate
 3.**Install dependencies:**
 
  ```bash
-Copy code
+
 pip install -r requirements.txt
  ```
 4.**Set up environment variables:**
 Copy .env.example to .env and update with your configuration:
  ```
 ini
-Copy code
+
 HF_TOKEN=<your_huggingface_token>
 HF_MODEL=<model_name>
 ADMIN_USERNAME=<admin_user>
@@ -93,7 +93,7 @@ ADMIN_PASSWORD=<admin_pass>
 5.**Run the Flask app:**
 
  ```bash
-Copy code
+
 python app.py
  ```
 6.**Open your browser:**
